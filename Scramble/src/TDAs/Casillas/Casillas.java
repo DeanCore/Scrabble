@@ -69,7 +69,7 @@ public class Casillas {
         getL2().add(new Coordenada(10,6));
         getL2().add(new Coordenada(10,10));
         getL2().add(new Coordenada(10,14));
-        getL2().add(new Coordenada(14,66));
+        getL2().add(new Coordenada(14,6));
         getL2().add(new Coordenada(14,10));
     }
     private void premPal1(){
