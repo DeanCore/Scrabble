@@ -29,7 +29,7 @@ public class Diccionario {
             
             while (buscar != null){
                 buscar = leerDiccionario.readLine();
-                if (buscar.contains(palabra)){
+                if (buscar.toUpperCase().contains(palabra.toUpperCase())){ //Para que no influya el hecho de escribir en mayusculas o minusculas
                     System.out.println("Palabra encontrada en el diccionario");
                     break;
                 }
