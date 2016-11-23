@@ -5,13 +5,14 @@
  */
 package TDAs.Casillas;
 
+import TDAs.*;
 import java.util.ArrayList;
 
 /**
  *
  * @author Marlon
  */
-public class Casillas {
+public class Casillas extends Validaciones{
     private Coordenada c;
     private String tipo;
     private ArrayList<Coordenada> l1;

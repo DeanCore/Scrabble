@@ -5,6 +5,7 @@
  */
 package TDAs;
 
+import TDAs.Casillas.Coordenada;
 import TDAs.Casillas.Piezas;
 import java.util.ArrayList;
 
@@ -40,6 +41,9 @@ public class Jugador extends Piezas{
             System.out.print(getAtril()[i]+",");
         }
         System.out.println("]");
+    }
+    public void intercambiarfichas(String[] atril,String[] atril2, String c1,String c2){
+        
     }
     /**
      * @return the nombre

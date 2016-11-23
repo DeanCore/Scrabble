@@ -5,7 +5,9 @@
  */
 package TDAs;
 
+import TDAs.Casillas.Coordenada;
 import TDAs.Casillas.Piezas;
+import TDAs.Casillas.Validaciones;
 
 /**
  *
@@ -14,10 +16,25 @@ import TDAs.Casillas.Piezas;
 public class Scramble {
     
     public static void main (String[] args){
-        
-        Tablero t=new Tablero();
+        Jugador j=new Jugador("Pepe");
+        j.ImprimirAtril();
+       /* Tablero t=new Tablero();
         t.imprimirTablero();
         
+        t.colocarficha("h",2,2);
+        
+        System.out.println();
+        t.imprimirTablero();
+        t.colocarficha("o",3,2);
+        System.out.println();
+        t.imprimirTablero();
+        t.colocarficha("l",4,2);
+        System.out.println();
+        t.imprimirTablero();
+        t.colocarficha("a",5,2);
+        System.out.println();
+        t.imprimirTablero();
+        */
     }
     
 }
