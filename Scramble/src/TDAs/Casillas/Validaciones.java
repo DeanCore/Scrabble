@@ -143,38 +143,85 @@ public class Validaciones {
         }
         return true;
     }
-    public static boolean leerPalabrahorizontal(Coordenada c,int v, Tablero t){
+    public static int leerPalabrahorizontal(Coordenada c, Tablero t){
         //horizontal
-        int cont=0;
-        for(int i=0;i<v+1;i++){
-            if((t.isPremiada(c.getCordx(), c.getCordy()+i)==-1)&&(cont<v)&&(i==v)){
-                return false;
-            }
-            else if (cont>=v){
-                return true;
+        
+        if((t.isPremiada(c.getCordx(),c.getCordy()-1)==5)&& (t.isPremiada(c.getCordx(),c.getCordy()+1)==-1)){
+            
+            for(int i=c.getCordy();i>1;i--){
+                if((t.isPremiada(c.getCordx(),i )==-1)&& (i<c.getCordy()-2)){
+                    return i;
+                }
                
             }
-            else if(t.isPremiada(c.getCordx()+i, c.getCordy())==5){
-                cont++;
-            }
-   
         }
-        return false;
+        else if((t.isPremiada(c.getCordx(),c.getCordy()-1)==-1)&& (t.isPremiada(c.getCordx(),c.getCordy()+1)==5)){
+            
+            for(int i=c.getCordy();i<15;i--){
+                if((t.isPremiada(c.getCordx(),i )==-1)&& (i>c.getCordy()+2)){
+                    return i;
+                }
+                
+            }
+        }
+      return 0; 
     }
-public static boolean leerPalabravertical(Coordenada c, int v, Tablero t){
-        int cont=0;
-    for(int i=0;i<v+1;i++){
-            if((t.isPremiada(c.getCordx()+i, c.getCordy())==-1)&&(cont<v)&&(i==v)){
-                return false;
+    public static int leerPalabravertical(Coordenada c, Tablero t){
+
+            if((t.isPremiada(c.getCordx()-1,c.getCordy())==5)&& (t.isPremiada(c.getCordx()+1,c.getCordy())==-1)){
+
+                for(int i=c.getCordx();i>1;i--){
+                    if((t.isPremiada(i,c.getCordy())==-1)&& (i<c.getCordx()-1)){
+                        return i;
+                    }
+
+                }
             }
-            else if (cont>=v){
-                return true;
-               
+            else if((t.isPremiada(c.getCordx()-1,c.getCordy())==-1)&& (t.isPremiada(c.getCordx()+1,c.getCordy())==5)){
+
+                for(int i=c.getCordx();i<=15;i--){
+                    if((t.isPremiada(i,c.getCordx())==-1)&& (i>c.getCordx()+1)){
+                        return i;
+                    }
+
+                }
             }
-            else if(t.isPremiada(c.getCordx()+i, c.getCordy())==5){
-                cont++;
-            }
+            
+          return 0;
     }
-    return false;
+    public static String leerPalabra(Coordenada c,int inicio,int fin,Tablero t){
+        String str="";
+        if(leerPalabrahorizontal(c,t)==0 && leerPalabrahorizontal(c,t)!=0){
+            for(int i=inicio;i<=fin;i++){
+                if(t.getNovalida().contains(new Coordenada(i,c.getCordy()))){
+                    return null;
+                }
+                else{
+
+                    for(int j=inicio;j<=fin;j++){
+                       str+=(String)t.getPieza().get(t.posarreglo(c.getCordx(),j))[0];
+                    }
+
+                }
+            }
+            return str;
+        }
+        else if(leerPalabrahorizontal(c,t)!=0 && leerPalabrahorizontal(c,t)==0){
+            for(int i=inicio;i<=fin;i++){
+                if(t.getNovalida().contains(new Coordenada(c.getCordx(),i))){
+                    return null;
+                }
+                else{
+
+                    for(int j=inicio;j<=fin;j++){
+                       str+=(String)t.getPieza().get(t.posarreglo(j,c.getCordy()))[0];
+                    }
+
+                }
+            }
+            return str;
+        }
+        return null;
+        }  
 }
-}
+

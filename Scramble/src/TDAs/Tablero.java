@@ -42,7 +42,7 @@ public class Tablero {
     public void colocarficha(String s, int x,int y){
         
         Object[] p={s,x,y};
-        this.pieza.add(p);
+        this.getPieza().add(p);
         this.temp.add(new Coordenada(x,y));
     }
     public void imprimirTablero(){
@@ -87,7 +87,7 @@ public class Tablero {
                 
                 switch (isPremiada(i,j)) {
                     case 5:
-                        System.out.print(" "+this.pieza.get(posarreglo(i,j))[0]+" |");
+                        System.out.print(" "+this.getPieza().get(posarreglo(i,j))[0]+" |");
                         break;
                     case 1:
                         System.out.print("2l"+" |");
@@ -123,9 +123,9 @@ public class Tablero {
     }
     public int isPremiada(int x,int y){
         Casillas c=new Casillas();
-        for(int i=0;i<this.pieza.size();i++){
-            if(this.pieza.get(i)[1].equals(x) && this.pieza.get(i)[2].equals(y)){
-                Validaciones.cespecial(new Coordenada((int)this.pieza.get(i)[1],(int)this.pieza.get(i)[2]));
+        for(int i=0;i<this.getPieza().size();i++){
+            if(this.getPieza().get(i)[1].equals(x) && this.getPieza().get(i)[2].equals(y)){
+                Validaciones.cespecial(new Coordenada((int)this.getPieza().get(i)[1],(int)this.getPieza().get(i)[2]));
                 return 5;
             }
         }
@@ -153,9 +153,9 @@ public class Tablero {
        return -1; 
     }
 
-    private int posarreglo(int x,int y){
-        for(int i=0;i<this.pieza.size();i++){
-            if(this.pieza.get(i)[1].equals(x) && this.pieza.get(i)[2].equals(y)){
+    public int posarreglo(int x,int y){
+        for(int i=0;i<this.getPieza().size();i++){
+            if(this.getPieza().get(i)[1].equals(x) && this.getPieza().get(i)[2].equals(y)){
                 return i;
             }
         }
@@ -215,6 +215,48 @@ public class Tablero {
      */
     public void setS(String s) {
         this.s = s;
+    }
+
+    /**
+     * @return the valida
+     */
+    public ArrayList<Coordenada> getValida() {
+        return valida;
+    }
+
+    /**
+     * @param valida the valida to set
+     */
+    public void setValida(ArrayList<Coordenada> valida) {
+        this.valida = valida;
+    }
+
+    /**
+     * @return the novalida
+     */
+    public ArrayList<Coordenada> getNovalida() {
+        return novalida;
+    }
+
+    /**
+     * @param novalida the novalida to set
+     */
+    public void setNovalida(ArrayList<Coordenada> novalida) {
+        this.novalida = novalida;
+    }
+
+    /**
+     * @return the pieza
+     */
+    public ArrayList<Object[]> getPieza() {
+        return pieza;
+    }
+
+    /**
+     * @param pieza the pieza to set
+     */
+    public void setPieza(ArrayList<Object[]> pieza) {
+        this.pieza = pieza;
     }
 
     
