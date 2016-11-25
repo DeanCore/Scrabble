@@ -85,9 +85,6 @@ public class Jugador extends Piezas{
      */
     public void setAtril(String[] atril) {
         this.atril = atril;
-    }
-
-    
 
     
     
@@ -95,4 +92,5 @@ public class Jugador extends Piezas{
     
     
     
+}    
 }
