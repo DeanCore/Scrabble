@@ -20,6 +20,7 @@ public class Scramble
     public static void main (String[] args){
         //Jugador j=new Jugador("Pepe");
         menuPricipal();
+        
         //j.ImprimirAtril();
         /*j.ImprimirAtril();
         Tablero t=new Tablero();
@@ -67,8 +68,22 @@ public class Scramble
                 Jugador jugador1=jugadorNuevo(1);
                 
                 Jugador jugador2=jugadorNuevo(2);
+                System.out.println("");
+                Tablero t=new Tablero();
+                System.out.println("\033[35m Este es el tablero de juego!");
+                t.imprimirTablero();
             }
         }
+    }
+    
+    public static void menuJugador()
+    {
+        System.out.println("\033[32m~~~~~~~~~~~~~~~~~");
+        System.out.println("\033[32m~"+"\033[31m    Scrabble   "+"\033[32m~");
+        System.out.println("\033[32m~~~~~~~~~~~~~~~~~");        
+        System.out.println("1._ Realizar jugada ");
+        System.out.println("2._ Terminar jugada ");
+        System.out.println("3._ Rendirse ");
     }
     public static Jugador jugadorNuevo(int numejugad)
     {   
@@ -78,9 +93,11 @@ public class Scramble
         System.out.println("\033[36mIngrese el nombre del jugador: ");
         nombre=ingreso.nextLine();
         jugador=new Jugador(nombre);
-        System.out.println("Bienvenio"+nombre);
+        System.out.println("Bienvenido "+nombre);
         return jugador;
         
     }
+    
+     
 }      
  
